@@ -1,0 +1,13 @@
+<div class="container" id="productCardContainer">
+    <div class="row justify-content-center productImageContainer">
+        <img class="productImageClass" [src]="productData!.image" alt="Prodict Picture">
+    </div>
+
+    <div class="row">
+        <h1>{{productData!.name}}</h1>
+    </div>
+
+    <div class="productImageContainer justify-content-center">
+        <span class="badge bg-primary">{{productData!.price| currency:"EGP"}}</span>
+    </div>
+</div>

@@ -1,0 +1,62 @@
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <p class="h1 col-3">{{storeName|uppercase}} </p>
+    </div>
+    <div class="row align-items-center">
+        <img class="col-12" [src]="storeLogo" alt="Store Logo">
+    </div>
+    
+    <br><br>
+    
+    
+    
+    
+    
+    <div *ngIf="isPurshased; then thenBlock ; else elseBlock">
+    
+    </div>
+    
+    <ng-template #elseBlock>
+        <h3 *ngIf="discount">We offer an explicit discount of: {{discount |percent}}</h3>
+    
+        <label for="Categories">Choose a category:</label>
+        <select name="Categories" id="CategoriesSelector" >
+        <option *ngFor="let category of categoryList" value={{category.id}} > {{category.name}} </option>
+        </select>
+    
+        <table>
+            <tr>
+              <th>name</th>
+              <th>quantity</th>
+              <th>price</th>
+            </tr>
+            <tr *ngFor="let product of productList">
+              <td>{{product.name}}</td>
+              <td>{{product.quantity}}</td>
+              <td>{{product.price}}</td>
+            </tr>
+          </table>
+
+          <div class="container">
+            <div class="row">
+                <app-product-card class="col-4" *ngFor="let product of productList" [productData] = product></app-product-card>
+            </div>
+          </div>
+    
+          <form action="">
+            <label for="userName">Name: </label>
+            <input type="text" name="userName" id="userNameInputField" [(ngModel)]="clientName">
+            <br>
+            <label for="">{{clientName}}</label>
+        </form>
+    
+        <button (click)="executeBuy()">Buy</button>
+    </ng-template>
+        
+    <ng-template #thenBlock>
+        <h2>Thanks for purchasing from our Store, {{clientName}}</h2>
+    </ng-template>
+    
+    
+    
+</div>

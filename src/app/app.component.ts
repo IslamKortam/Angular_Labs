@@ -1,10 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { ProductComponent } from './product/product.component';
+import { ProductServiceService } from './services/product-service.service';
+
+
 
 @Component({
-  selector: 'app-root',
+  selector: 'myfirstapp-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+
+  @ViewChild(ProductComponent) productComponent: ProductComponent = new ProductComponent(new ProductServiceService());
+
   title = 'Day1_Task1';
+
+  handleLoadProductsButtonPress(){
+      this.productComponent.renderValues();
+  }
 }
