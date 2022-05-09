@@ -11,11 +11,6 @@ import { ProductServiceService } from './services/product-service.service';
 })
 export class AppComponent {
 
-  @ViewChild(ProductComponent) productComponent: ProductComponent = new ProductComponent(new ProductServiceService());
-
+  
   title = 'Day1_Task1';
-
-  handleLoadProductsButtonPress(){
-      this.productComponent.renderValues();
-  }
 }

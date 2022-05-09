@@ -1,0 +1,10 @@
+<p>users-page works!</p>
+
+<div *ngFor="let user of users">
+    {{user.id}}
+    {{user.name}}
+</div>
+
+<div *ngIf="hasError()">
+    {{errorMsg}}
+</div>

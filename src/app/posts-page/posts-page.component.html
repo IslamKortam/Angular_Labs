@@ -1,0 +1,8 @@
+<p>posts-page works!</p>
+<div *ngFor="let post of posts">
+    {{post.id}} {{post.title}} 
+</div>
+
+<div *ngIf="hasError()">
+    {{errorMsg}}
+</div>
