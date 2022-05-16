@@ -1,4 +1,4 @@
-<p>posts-page works!</p>
+<app-header></app-header>
 <div *ngFor="let post of posts">
     {{post.id}} {{post.title}} 
 </div>
@@ -6,3 +6,4 @@
 <div *ngIf="hasError()">
     {{errorMsg}}
 </div>
+<app-footer></app-footer>

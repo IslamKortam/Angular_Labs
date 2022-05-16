@@ -1,5 +1,4 @@
-<p>users-page works!</p>
-
+<app-header></app-header>
 <div *ngFor="let user of users">
     {{user.id}}
     {{user.name}}
@@ -8,3 +7,5 @@
 <div *ngIf="hasError()">
     {{errorMsg}}
 </div>
+
+<app-footer></app-footer>

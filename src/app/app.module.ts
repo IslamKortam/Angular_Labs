@@ -14,6 +14,8 @@ import { UsersPageComponent } from './users-page/users-page.component';
 import { PostsPageComponent } from './posts-page/posts-page.component';
 import { PageNotFoundPageComponent } from './page-not-found-page/page-not-found-page.component';
 import {HttpClientModule} from '@angular/common/http';
+import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import {HttpClientModule} from '@angular/common/http';
     ProductsComponent,
     UsersPageComponent,
     PostsPageComponent,
-    PageNotFoundPageComponent
+    PageNotFoundPageComponent,
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

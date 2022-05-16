@@ -1,0 +1,116 @@
+<app-header></app-header>
+<div class="container">
+    <form #userForm="ngForm" novalidate>
+      <br/>
+      <div class="form-group">
+        <label>username</label>
+        <input
+          type="text"
+          name="username"
+          [(ngModel)]="user.username"
+          required
+          pattern="[a-zA-Z]+"
+          [class.is-invalid]="name.invalid && name.touched"
+          #name="ngModel"
+          class="form-control"
+        />
+        <small class="text-danger" [class.d-none]="name.valid || name.untouched">
+          username is required to contain English alphabit charcters only
+        </small>
+      </div>
+  
+      <br/>
+      <div class="form-group">
+        <label>Email</label>
+        <input
+          type="email"
+          name="txtEmail"
+          #email="ngModel"
+          [(ngModel)]="user.email"
+          required
+          [class.is-invalid]="email.invalid && email.touched"
+          pattern="^[a-z0-9._-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+          class="form-control"/>
+
+        <br/>
+        <div *ngIf="email.errors && email.touched">
+          <small class="text-danger" *ngIf="email.errors['required']">
+            Email is required
+          </small
+          >
+          <small class="text-danger" *ngIf="email.errors['pattern']">
+            Email isn't valid
+          </small>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label>Password</label>
+        <input
+          type="text"
+          name="txtPass"
+          #password="ngModel"
+          [(ngModel)]="user.password"
+          pattern="[a-zA-Z0-9]{8}"
+          required
+          [class.is-invalid]="password.invalid && password.touched"
+          class="form-control"/>
+        
+        <div *ngIf="password.errors && password.touched">
+          <small class="text-danger" *ngIf="password.errors['required']">
+            Password is required
+          </small>
+          <small class="text-danger" *ngIf="password.errors['pattern']">
+            Password length must be 8 charcters
+          </small>
+        </div>
+      </div>
+
+      <br/>
+      <div class="form-group">
+        <label>Confirm Password</label>
+        <input
+          type="text"
+          name="txtPass"
+          #confirmpassword="ngModel"
+          [(ngModel)]="user.confirmPassword"
+          pattern="[a-zA-Z0-9]{8}"
+          required
+          [class.is-invalid]="confirmpassword.invalid && confirmpassword.touched "
+          class="form-control"/>
+  
+        <div *ngIf="confirmpassword.errors && confirmpassword.touched">
+          <small class="text-danger" *ngIf="confirmpassword.errors['required']">
+            Password is required
+          </small>
+          <small class="text-danger" *ngIf="confirmpassword.errors['pattern']">
+            Password length must be 8 charcters
+          </small>
+        </div>
+      </div>
+      
+      <br/>
+      <div class="form-group">
+        <select
+          class="custom-select"
+          name="ddlTopics"
+          #topic="ngModel"
+          [(ngModel)]="user.tobic">
+  
+          <option>I'm Interested In ?</option>
+          <option *ngFor="let tobic of tobics">
+            {{ tobic }}
+          </option>
+          
+        </select>
+      </div>
+      
+      <br/>
+      <input
+        type="submit"
+        class="btn btn-primary"
+        value="SUBMIT"
+        [disabled]="userForm.form.invalid"/>
+    </form>
+  </div>
+<app-footer></app-footer>
